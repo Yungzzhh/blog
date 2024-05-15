@@ -17,7 +17,7 @@ export default function Intercept() {
   return (
     <div className="flex gap-4">
       {PHOTOS.map((p) => (
-        <Link href={`/trick/intercept-router/${p.id}`} key={p.id}>
+        <Link href={`/trick/intercept/photo/${p.id}`} key={p.id}>
           <Image
             src={`/InterceptRouterImage/${p.id}.png`}
             alt={"image.alt_description"}

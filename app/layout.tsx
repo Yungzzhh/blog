@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Michael's Blog",
@@ -17,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable
+        )}
+      >
         <div className=" flex  justify-end items-center p-4 fixed w-full top-0 z-10 bg-slate-50">
           <div className=" absolute left-0">
             <Link href={"/"}>
