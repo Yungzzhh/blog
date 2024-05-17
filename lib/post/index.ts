@@ -55,6 +55,7 @@ export function getPostData(id: string) {
   // Combine the data with the id
   return {
     id,
+    category: path.basename(directory!),
     ...matterResult.data,
     content: matterResult.content,
   };

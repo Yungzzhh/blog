@@ -1,28 +1,29 @@
 import { getSortedPostsData } from "@/lib/post";
-
-interface Post {
-  id: string;
-  title?: string;
-  date?: string;
-  content?: string;
-  category?: string;
-}
+import { Model_Article } from "@/model";
+import Link from "next/link";
 
 export default async function Home() {
   const res = getSortedPostsData();
   console.log(res);
+  const titleList = res.map((post: Model_Article.Post) => {
+    return {
+      title: post.title,
+      date: post.date,
+      id: post.id,
+    };
+  });
 
   return (
     <>
-      {res.map((post: Post) => {
-        return (
-          <div key={post.id}>
-            <h1>{post.title ? post.title : "title"}</h1>
-            <p>{post.date ? post.date : "date"}</p>
-            {/* {} */}
-          </div>
-        );
-      })}
+      <div className="flex gap-6">
+        {res.map((post: Model_Article.Post) => {
+          return (
+            <Link href={`/articles/${post.id}`} key={post.id}>
+              {post.title}
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 }

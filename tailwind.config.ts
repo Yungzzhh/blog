@@ -1,4 +1,4 @@
-import fontFamily from "tailwindcss/defaultTheme";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -11,11 +11,18 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px",
       },
     },
     extend: {
@@ -56,6 +63,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        base: "slate",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -76,6 +84,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: (theme) => ({
+        landing: "url('/default.png')",
+      }),
     },
   },
   plugins: [require("tailwindcss-animate")],
