@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const navbar = document.getElementById("navbar")!;
 
     const handleScroll = () => {
-      if (window.pageYOffset > 0) {
+      if (window.scrollY > 0) {
         navbar.classList.add("shadow-md");
       } else {
         navbar.classList.remove("shadow-md");
